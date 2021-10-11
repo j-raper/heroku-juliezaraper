@@ -42,32 +42,34 @@
         border-radius: 10px;
     }
     #rowmap{
-        height: 400px;
+        height: 350px;
     }
     #food{
         flex-grow: 1;
         transition: all 400ms ease;
     }
-    @keyframes zoom-in-zoom-out {
+    @keyframes wiggle {
         0% {
-        transform: scale(1, 1);
+            transform: rotate(-2deg);
         }
-        50% {
-        transform: scale(1.5, 1.5);
-        }
-        100% {
-        transform: scale(1, 1);
+        100%{
+            transform: rotate(2deg);
         }
     }
     #webDev { 
-        animation: zoom-in-zoom-out 2s ease-out infinite;
+        animation: wiggle .1s infinite alternate;    
     }
     #design { 
-        animation: zoom-in-zoom-out 2s ease-out infinite;
+        animation: wiggle .1s infinite alternate;    
     }
     #camera{ 
-        animation: zoom-in-zoom-out 2s ease-out infinite;
+        animation: wiggle .1s infinite alternate;    
     } 
+    #button:active {
+        background-color:lightseagreen;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
     @keyframes zoom-in {
         30% {
         transform: scale(1.5, 1.5);
@@ -118,18 +120,20 @@
     #img15:hover{
         animation: zoom-in 2s ease-out infinite;
     }
-    body::before {
+    .body{
+        display: block;
+        content: '';
         height: 60px;
     }
 
 </style>
 
 <!-- navbar start -->
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top py-3">
+<nav class="navbar py-3 bg-dark navbar-light fixed-top bg-light shadow-sm">
     <div class="container-lg">
-    <a class="navbar-brand text-info fw-bold btn fs-4" id="brand" href="#home">tech-savvy</a>
+    <a class="navbar-brand text-info fw-bold fs-4" href="#home">tech-savvy</a>
     <div class="dropdown">
-        <button class="btn btn-secondary btn-info px-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+        <button class="btn btn-secondary btn-info px-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-bars"></i>
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
@@ -140,25 +144,25 @@
             <li><a class="dropdown-item" href="#testimonials">Testimonials</a></li>
             <li><a class="dropdown-item" href="#contact">Contacts</a></li>
         </ul>
-        </div>
+    </div>
     </div>
 </nav>
 <!-- navbar end -->
 
 <!-- home section start -->
-<section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start" id="home">
-    <div class="container py-5 px-3">
-        <div class="row min-vh-50 align-items-center align-content-center">
+<section class="home bg-dark py-5" id="home">
+    <div class="container-lg">
+        <div class="row min-vh-100 align-items-center align-content-center">
             <div class="col-md-6 mt-5 mt-md-0">
-                <div class="home-img img-fluid w-50 d-none d-sm-block">
-                    <img src="img/me-gif.gif" class="rounded-circle" alt="girl" id="me">
+                <div class="home-img text-center">
+                    <img src="img/me-gif.gif" class="rounded-circle mw-100" alt="girl" id="me">
                 </div>
             </div>
             <div class="col-md-6 mt-5 mt-md-0 order-md-first">
                 <div class="home-test">
                     <p class="text-light text-uppercase fw-bold" id="techsavvy">Tech-Savvy <span class="text-info">Girl</span></p>
-                    <p class="mt-1 text-muted" id="wintech">Future Computer Scientist <br>#womenintech</p>
-                    <a href="#portfolio" class="btn btn-info px-3 mt-3 font-awesome fw-italic">My Works</a>
+                    <p class="mt-4 text-muted" id="wintech">Future Computer Scientist <br>#womenintech</p>
+                    <a href="#portfolio" class="btn btn-info px-3 mt-3 font-awesome fw-italic" id="button">My Works</a>
                 </div>
             </div>
         </div>
@@ -167,7 +171,7 @@
 <!-- home section end -->
 
 <!-- about section start -->
-<section class="about p-5" id="about">
+<section class="about py-5" id="about">
     <div class="container-lg py-4">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -206,7 +210,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-10 d-flex align-items-center">
-                        <a href="https://juliezajanebella.wixsite.com/aloha" target="_blank" class="btn px-3 btn-info me-5">Visit My Blog</a>
+                        <a href="https://juliezajanebella.wixsite.com/aloha" target="_blank" class="btn px-3 btn-info me-5" id="button">Visit My Blog</a>
                         <div class="social-link">
                             <a href="https://www.facebook.com/juliezajanebella/" target="_blank" class="text-dark me-2"><i class="fab fa-facebook-f"></i></a>
                             <a href="https://www.instagram.com/baejuja_/" target="_blank" class="text-dark me-2"><i class="fab fa-instagram"></i></a>
@@ -542,7 +546,7 @@
         <div class="row">
             <div class="col-md-5">
                 <div class="contact-item d-flex mb-3">
-                    <div class="icon fs-4 text-info">
+                    <div class="icon fs-4 text-info" id="email">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <div class="text ms-3">
@@ -551,7 +555,7 @@
                     </div>
                 </div>
                 <div class="contact-item d-flex mb-3">
-                    <div class="icon fs-4 text-info">
+                    <div class="icon fs-4 text-info" id="phone">
                         <i class="fas fa-phone"></i>
                     </div>
                     <div class="text ms-3">
@@ -561,7 +565,7 @@
                     </div>
                 </div>
                 <div class="contact-item d-flex mb-3">
-                    <div class="icon fs-4 text-info">
+                    <div class="icon fs-4 text-info" id="location">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="text ms-3">
@@ -588,7 +592,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <button type="submit" class="btn btn-info px-3">Send message</button>
+                                <button type="submit" class="btn btn-info px-3" id="button">Send message</button>
                             </div>
                         </div>
                     </form>
@@ -599,7 +603,7 @@
                     <div id="map">
                     </div>
                   </div>
-                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -616,8 +620,10 @@
     </div>
 </footer>
 <!-- footer end -->
+
 <script src="./js/bootstrap.bundle.min.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoianVsaWV6YXJhcGVyIiwiYSI6ImNrdTNpc3oxODEwamcybm5paHdyYjV5Y2cifQ.hO3QeFKSkRP6HT5OQ3EjSg';
     var map = new mapboxgl.Map({
